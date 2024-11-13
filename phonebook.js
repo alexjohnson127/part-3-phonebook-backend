@@ -6,6 +6,7 @@ const cors = require('cors')
 const app = express()
 app.use(express.json()) //allows req body to be read
 app.use(cors()) //allows requests from all origins
+app.use(express.static('dist')) //allows static content to be shown
 morgan.token('type', function(req, res){ return JSON.stringify(req.body)})
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
 let persons = [
